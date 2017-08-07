@@ -6,6 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -14,12 +23,15 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        requestQueue = Volley.newRequestQueue(this);
     }
 
     public void getRequestUsingHTTP(View view) {
@@ -33,11 +45,49 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getRequestUsingVolley(View view) {
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, "http://192.168.225.201/http/getJson.php", null, new Response.Listener<JSONObject>() {
 
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        System.out.println(response.toString());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        error.printStackTrace();
+                    }
+                });
+        requestQueue.add(jsObjRequest);
     }
 
     public void postRequestUsingVolley(View view) {
+        JSONObject requestObject = null;
+        try {
+            requestObject = new JSONObject();
+            requestObject.put("name", "Nagaraj N");
+            requestObject.put("ID", 12345);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.POST, "http://192.168.225.201/http/postJson.php", requestObject, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        System.out.println(response.toString());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        error.printStackTrace();
+                    }
+                });
+        requestQueue.add(jsObjRequest);
     }
 
 
@@ -80,20 +130,18 @@ public class MainActivity extends AppCompatActivity {
 
             //add request header
             int responseCode = con.getResponseCode();
-            System.out.println("\nSending 'GET' request to URL : " + url);
+            System.out.println("Sending 'GET' request to URL : " + url);
             System.out.println("Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
             String inputLine;
-
-
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
             in.close();
             //print result
-            System.out.println(method + " response is : "+ response.toString());
+            System.out.println(method + " response is : " + response.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
