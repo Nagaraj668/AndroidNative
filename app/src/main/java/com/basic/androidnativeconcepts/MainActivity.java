@@ -1,5 +1,6 @@
 package com.basic.androidnativeconcepts;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -146,5 +147,10 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return response.toString();
+    }
+
+    public void openSecondActivity (View view) {
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
     }
 }

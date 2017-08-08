@@ -4,6 +4,8 @@
     <string name="get_req">Get Request using HTTP</string>
     <string name="get_req_volley">Get Request using Volley</string>
     <string name="post_req_http">POST Request using HTTP</string>
-    <string name="post_req_volley" >POST Request using Volley</string>
+    <string name="post_req_volley">POST Request using Volley</string>
     <string name="req_method">Method</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="open_second" >Open Second</string>
 </resources>
