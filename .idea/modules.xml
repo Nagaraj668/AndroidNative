@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidNativeConcepts.iml" filepath="$PROJECT_DIR$/AndroidNativeConcepts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidhybridapp/androidhybridapp.iml" filepath="$PROJECT_DIR$/androidhybridapp/androidhybridapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
