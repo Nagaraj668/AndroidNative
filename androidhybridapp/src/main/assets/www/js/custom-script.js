@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Page Title</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script>
 
 var URL = "http://192.168.0.5/http/";
 var requestData = {
@@ -39,23 +32,3 @@ function postData() {
     });
 
 }
-
-    </script>
-
-</head>
-<body>
-
-<h1>This is a Hybrid App</h1>
-<p>Hello World!!</p>
-
-<button onclick="getData()">Get Data</button>
-<button onclick="postData()">Post Data</button>
-
-<p>GET Method Response:</p>
-<p id="get-response"></p>
-
-<p>POST Method Response:</p>
-<p id="post-response"></p>
-
-</body>
-</html>
