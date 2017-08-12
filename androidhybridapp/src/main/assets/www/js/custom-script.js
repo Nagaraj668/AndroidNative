@@ -11,8 +11,10 @@ function getData() {
         url : URL + 'getJson.php',
         type: 'GET',
         accept: 'application/json',
-        success: function (data) {
+        crossDomain: true,
+        success: function (data, status, headers) {
             $('#get-response').text(JSON.stringify(data));
+            console.log("Status: " + status + "\nResponse: "+ JSON.stringify(data));
         }
     });
 
@@ -22,12 +24,14 @@ function postData() {
 
     $.ajax ({
         url : URL + 'postJson.php',
-        type: 'GET',
+        type: 'POST',
         accept: 'application/json',
         contentType: 'application/json',
-        data: JSON.stringify(requestData)
-        success: function (data) {
+        crossDomain: true,
+        data: JSON.stringify(requestData),
+        success: function (data, status, headers) {
             $('#post-response').text(JSON.stringify(data));
+            console.log("Status: " + status + "\nResponse: "+ JSON.stringify(data));
         }
     });
 
