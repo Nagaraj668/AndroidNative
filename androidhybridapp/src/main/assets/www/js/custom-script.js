@@ -21,7 +21,6 @@ function getData() {
 }
 
 function postData() {
-
     $.ajax ({
         url : URL + 'postJson.php',
         type: 'POST',
@@ -34,5 +33,8 @@ function postData() {
             console.log("Status: " + status + "\nResponse: "+ JSON.stringify(data));
         }
     });
+}
 
+function communicateNative() {
+    android.showToast('Hello Native!! This is the message from Javascript');
 }
