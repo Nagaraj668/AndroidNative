@@ -36,5 +36,7 @@ function postData() {
 }
 
 function communicateNative() {
+    // android is the object, which is sent from MainActivity.java below line
+    // webView.addJavascriptInterface(new WebAppInterface(this), "android");
     android.showToast('Hello Native!! This is the message from Javascript');
 }

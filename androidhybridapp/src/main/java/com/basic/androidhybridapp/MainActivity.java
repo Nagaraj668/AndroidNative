@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         WebView webView = (WebView) findViewById(R.id.webview);
         webView.loadUrl("file:///android_asset/www/index.html");
-        webView.addJavascriptInterface(new WebAppInterface(this), "android");
+        webView.addJavascriptInterface(this, "android");
 
 
         WebSettings webSettings = webView.getSettings();
@@ -25,18 +25,8 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setAllowUniversalAccessFromFileURLs(true);
     }
 
-    public class WebAppInterface {
-        Context mContext;
-
-        /** Instantiate the interface and set the context */
-        WebAppInterface(Context c) {
-            mContext = c;
-        }
-
-        /** Show a toast from the web page */
-        @JavascriptInterface
-        public void showToast(String toast) {
-            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
-        }
+    @JavascriptInterface
+    public void showToast(String toast) {
+        Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
     }
 }
