@@ -27,7 +27,8 @@
             android:name=".SecondActivity"
             android:label="@string/title_activity_second"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SQLiteActivity"></activity>
+        <activity android:name=".SQLiteActivity"
+            android:label="@string/sqlite_activity" />
     </application>
 
 </manifest>
