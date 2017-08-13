@@ -153,4 +153,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
+
+    public void openSQLiteActivity (View view) {
+        Intent intent = new Intent(this, SQLiteActivity.class);
+        startActivity(intent);
+    }
 }

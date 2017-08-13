@@ -7,5 +7,6 @@
     <string name="post_req_volley">POST Request using Volley</string>
     <string name="req_method">Method</string>
     <string name="title_activity_second">SecondActivity</string>
-    <string name="open_second">Open Second</string>
+    <string name="open_second">Open Second Activity</string>
+    <string name="open_sqlite">Open SQLite Activity</string>
 </resources>
