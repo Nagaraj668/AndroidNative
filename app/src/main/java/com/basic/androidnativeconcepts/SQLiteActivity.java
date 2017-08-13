@@ -41,7 +41,7 @@ public class SQLiteActivity extends AppCompatActivity implements ItemClickListen
         recyclerView.setAdapter(booksAdapter);
     }
 
-    public void addName(View view) {
+    public void addBook(View view) {
         String name = nameEditText.getText().toString();
         Book book = new Book();
 

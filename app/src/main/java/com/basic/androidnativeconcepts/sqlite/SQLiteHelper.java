@@ -63,6 +63,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_CONTACTS, null, values);
         db.close(); // Closing database connection
+        flag = true;
         return flag;
     }
 
@@ -70,9 +71,11 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + TABLE_CONTACTS;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
+        int count  = cursor.getCount();
+        db.close();
         cursor.close();
         // return count
-        return cursor.getCount();
+        return count;
     }
 
     public Book getBookById(int id) {
