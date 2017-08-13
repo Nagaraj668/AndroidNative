@@ -2,6 +2,7 @@ package com.basic.androidnativeconcepts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -38,6 +39,7 @@ public class SQLiteActivity extends AppCompatActivity implements ItemClickListen
         bookList = sqLiteHelper.getAllBooks();
         booksAdapter = new BooksAdapter(bookList, this, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(booksAdapter);
     }
 
